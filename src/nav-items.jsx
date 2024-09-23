@@ -1,4 +1,4 @@
-import { HomeIcon, TagIcon, InfoIcon, PhoneIcon } from "lucide-react";
+import { HomeIcon, PlaneIcon, HotelIcon, CarIcon, LeafIcon, UtensilsIcon } from "lucide-react";
 import Index from "./pages/Index.jsx";
 
 export const navItems = [
@@ -9,21 +9,33 @@ export const navItems = [
     page: <Index />,
   },
   {
-    title: "Eco Deals",
-    to: "/deals",
-    icon: <TagIcon className="h-4 w-4" />,
-    page: <Index />, // This would be replaced with a Deals component
+    title: "Flights",
+    to: "/flights",
+    icon: <PlaneIcon className="h-4 w-4" />,
+    page: <div>Eco-Friendly Flights</div>,
   },
   {
-    title: "About",
-    to: "/about",
-    icon: <InfoIcon className="h-4 w-4" />,
-    page: <div>About Page</div>, // This would be replaced with an About component
+    title: "Hotels",
+    to: "/hotels",
+    icon: <HotelIcon className="h-4 w-4" />,
+    page: <div>Sustainable Hotels</div>,
   },
   {
-    title: "Contact",
-    to: "/contact",
-    icon: <PhoneIcon className="h-4 w-4" />,
-    page: <div>Contact Page</div>, // This would be replaced with a Contact component
+    title: "Car Rentals",
+    to: "/car-rentals",
+    icon: <CarIcon className="h-4 w-4" />,
+    page: <div>Green Car Rentals</div>,
+  },
+  {
+    title: "Eco Tours",
+    to: "/eco-tours",
+    icon: <LeafIcon className="h-4 w-4" />,
+    page: <div>Eco-Friendly Tours</div>,
+  },
+  {
+    title: "Restaurants",
+    to: "/restaurants",
+    icon: <UtensilsIcon className="h-4 w-4" />,
+    page: <div>Sustainable Dining</div>,
   },
 ];
