@@ -8,47 +8,17 @@ const flightDeals = [
     to: 'Calgary',
     departDate: 'Sun, Dec 1',
     returnDate: 'Tue, Dec 3',
-    price: 416
+    price: 416,
+    airline: 'Flair Airlines'
   },
   {
     id: 2,
     from: 'Toronto',
     to: 'Calgary',
     departDate: 'Sat, Nov 9',
-    returnDate: 'Mon, Nov 11',
-    price: 464
-  },
-  {
-    id: 3,
-    from: 'Kitchener',
-    to: 'Vancouver',
-    departDate: 'Mon, Jan 27',
-    returnDate: 'Wed, Feb 5',
-    price: 497
-  },
-  {
-    id: 4,
-    from: 'Toronto',
-    to: 'Abbotsford',
-    departDate: 'Mon, Jan 13',
-    returnDate: 'Tue, Jan 21',
-    price: 497
-  },
-  {
-    id: 5,
-    from: 'Toronto',
-    to: 'Orlando',
-    departDate: 'Thu, Jan 16',
-    returnDate: 'Mon, Jan 20',
-    price: 379
-  },
-  {
-    id: 6,
-    from: 'Kitchener',
-    to: 'Fort Lauderdale',
-    departDate: 'Fri, Jan 17',
-    returnDate: 'Fri, Jan 24',
-    price: 512
+    returnDate: 'Mon, Nov 25',
+    price: 464,
+    airline: 'Flair Airlines'
   },
 ];
 
@@ -59,13 +29,18 @@ const FlightDeals = () => {
       <p className="text-sm text-gray-600 mb-4">
         These prices were available within the past 7 days. Prices quoted are per person, return, for the period specified. Prices and availability are subject to change. Additional terms apply.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="flex space-x-4 mb-4">
+        <Button variant="outline">All deals</Button>
+        <Button variant="outline">One way</Button>
+        <Button variant="default">Roundtrip</Button>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {flightDeals.map((deal) => (
           <div key={deal.id} className="bg-white p-4 rounded-lg shadow">
             <div className="flex justify-between items-center mb-2">
               <div>
                 <p className="font-semibold">{deal.from} → {deal.to}</p>
-                <p className="text-sm text-gray-600">YKF-YYC-YKF · WestJet</p>
+                <p className="text-sm text-gray-600">{deal.airline}</p>
               </div>
             </div>
             <div className="flex justify-between items-center mb-2">

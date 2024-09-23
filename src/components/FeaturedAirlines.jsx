@@ -2,12 +2,13 @@ import React from 'react';
 
 const airlines = [
   { name: 'Air Canada', logo: '/airline-logos/air-canada.png' },
-  { name: 'WestJet', logo: '/airline-logos/westjet.png' },
+  { name: 'American Airlines', logo: '/airline-logos/american-airlines.png' },
   { name: 'Delta', logo: '/airline-logos/delta.png' },
+  { name: 'WestJet', logo: '/airline-logos/westjet.png' },
   { name: 'Porter', logo: '/airline-logos/porter.png' },
   { name: 'Air Transat', logo: '/airline-logos/air-transat.png' },
   { name: 'United', logo: '/airline-logos/united.png' },
-  { name: 'American Airlines', logo: '/airline-logos/american-airlines.png' },
+  { name: 'British Airways', logo: '/airline-logos/british-airways.png' },
   { name: 'Lufthansa', logo: '/airline-logos/lufthansa.png' },
 ];
 
