@@ -8,7 +8,7 @@ const EcoTours = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Eco-Friendly Tours</h1>
       <div className="mb-8">
-        <img src="https://source.unsplash.com/random/1200x400?eco-tour" alt="Eco Tour" className="w-full h-64 object-cover rounded-lg shadow-md" />
+        <img src="https://picsum.photos/1200/400" alt="Eco Tour" className="w-full h-64 object-cover rounded-lg shadow-md" />
       </div>
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
@@ -50,7 +50,7 @@ const EcoTours = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <div key={item} className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img src={`https://source.unsplash.com/random/400x300?eco-tour&sig=${item}`} alt="Eco Tour" className="w-full h-48 object-cover" />
+            <img src={`https://picsum.photos/400/300?random=${item}`} alt="Eco Tour" className="w-full h-48 object-cover" />
             <div className="p-4">
               <h3 className="font-semibold text-lg mb-2">Eco Adventure Tour {item}</h3>
               <p className="text-gray-600 mb-2">Explore nature responsibly with our guided eco-tours.</p>
