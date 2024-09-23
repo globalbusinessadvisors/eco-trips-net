@@ -8,6 +8,9 @@ const Flights = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Eco-Friendly Flights</h1>
+      <div className="mb-8">
+        <img src="https://source.unsplash.com/random/1200x400?airplane" alt="Airplane" className="w-full h-64 object-cover rounded-lg shadow-md" />
+      </div>
       <FlightSearch />
       <FeaturedAirlines />
       <PlanBookFly />
