@@ -6,7 +6,7 @@ import { MapPinIcon, CalendarIcon } from 'lucide-react';
 
 const FlightSearch = () => {
   const [tripType, setTripType] = useState('roundtrip');
-  const [from, setFrom] = useState('Toronto, Ontario, Canada');
+  const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [departDate, setDepartDate] = useState('');
   const [returnDate, setReturnDate] = useState('');

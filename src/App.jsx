@@ -6,6 +6,10 @@ import { navItems } from "./nav-items";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Flights from "./pages/Flights";
+import Hotels from "./pages/Hotels";
+import CarRentals from "./pages/CarRentals";
+import EcoTours from "./pages/EcoTours";
+import Restaurants from "./pages/Restaurants";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +28,10 @@ const App = () => (
                 <Route key={to} path={to} element={page} />
               ))}
               <Route path="/flights" element={<Flights />} />
+              <Route path="/hotels" element={<Hotels />} />
+              <Route path="/car-rentals" element={<CarRentals />} />
+              <Route path="/eco-tours" element={<EcoTours />} />
+              <Route path="/restaurants" element={<Restaurants />} />
             </Routes>
           </main>
           <Footer />
