@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MapPinIcon, CalendarIcon } from 'lucide-react';
+import axios from 'axios';
 
 const FlightSearch = () => {
   const [tripType, setTripType] = useState('roundtrip');
@@ -10,6 +11,27 @@ const FlightSearch = () => {
   const [to, setTo] = useState('');
   const [departDate, setDepartDate] = useState('');
   const [returnDate, setReturnDate] = useState('');
+  const [addPlace, setAddPlace] = useState(false);
+  const [addCar, setAddCar] = useState(false);
+  const [directOnly, setDirectOnly] = useState(false);
+
+  const handleSearch = async () => {
+    try {
+      const response = await axios.post('/api/flight-search', {
+        tripType,
+        from,
+        to,
+        departDate,
+        returnDate,
+        addPlace,
+        addCar,
+        directOnly,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error searching flights:', error);
+    }
+  };
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md mb-8">
@@ -75,19 +97,19 @@ const FlightSearch = () => {
       </div>
       <div className="flex flex-wrap items-center gap-4 mb-4">
         <div className="flex items-center space-x-2">
-          <Checkbox id="addPlace" />
+          <Checkbox id="addPlace" checked={addPlace} onChange={(e) => setAddPlace(e.target.checked)} />
           <label htmlFor="addPlace">Add a place to stay</label>
         </div>
         <div className="flex items-center space-x-2">
-          <Checkbox id="addCar" />
+          <Checkbox id="addCar" checked={addCar} onChange={(e) => setAddCar(e.target.checked)} />
           <label htmlFor="addCar">Add a car</label>
         </div>
         <div className="flex items-center space-x-2">
-          <Checkbox id="directOnly" />
+          <Checkbox id="directOnly" checked={directOnly} onChange={(e) => setDirectOnly(e.target.checked)} />
           <label htmlFor="directOnly">Direct flights only</label>
         </div>
       </div>
-      <Button className="w-full md:w-auto">Search</Button>
+      <Button className="w-full md:w-auto" onClick={handleSearch}>Search</Button>
     </div>
   );
 };

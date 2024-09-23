@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import axios from 'axios';
 
 const flightDeals = [
   {
@@ -23,6 +24,20 @@ const flightDeals = [
 ];
 
 const FlightDeals = () => {
+  const handleFindDeals = async (deal) => {
+    try {
+      const response = await axios.post('/api/flight-deals', {
+        from: deal.from,
+        to: deal.to,
+        departDate: deal.departDate,
+        returnDate: deal.returnDate,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error finding deals:', error);
+    }
+  };
+
   return (
     <div className="mt-8">
       <h2 className="text-2xl font-semibold mb-4">Cheapest flights from Toronto</h2>
@@ -49,7 +64,7 @@ const FlightDeals = () => {
             </div>
             <div className="flex justify-between items-center">
               <p className="text-sm text-gray-600">Roundtrip</p>
-              <Button variant="outline">Find deals from CA ${deal.price}</Button>
+              <Button variant="outline" onClick={() => handleFindDeals(deal)}>Find deals from CA ${deal.price}</Button>
             </div>
           </div>
         ))}

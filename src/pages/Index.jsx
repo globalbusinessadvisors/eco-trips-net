@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import axios from 'axios';
 
 const fetchEcoDeals = async () => {
   // This would be replaced with an actual API call to your backend
@@ -13,6 +14,15 @@ const fetchEcoDeals = async () => {
     { id: 5, title: "Organic Farm Stay", location: "New Zealand", price: 199, cashback: 20, image: "https://picsum.photos/seed/eco5/300/200" },
     { id: 6, title: "Electric Car Road Trip", location: "California", price: 399, cashback: 40, image: "https://picsum.photos/seed/eco6/300/200" },
   ];
+};
+
+const handleViewDeal = async (dealId) => {
+  try {
+    const response = await axios.get(`/api/deal/${dealId}`);
+    console.log(response.data);
+  } catch (error) {
+    console.error('Error viewing deal:', error);
+  }
 };
 
 const Index = () => {
@@ -40,7 +50,7 @@ const Index = () => {
               <p className="text-green-500">Earn ${deal.cashback} cash back</p>
             </CardContent>
             <CardFooter>
-              <Button className="w-full">View Deal</Button>
+              <Button className="w-full" onClick={() => handleViewDeal(deal.id)}>View Deal</Button>
             </CardFooter>
           </Card>
         ))}
