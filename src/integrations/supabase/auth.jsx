@@ -3,6 +3,7 @@ import { supabase } from './supabase.js';
 import { useQueryClient } from '@tanstack/react-query';
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
+import axios from 'axios';
 
 const SupabaseAuthContext = createContext();
 
@@ -66,3 +67,47 @@ export const SupabaseAuthUI = () => (
     providers={[]}
   />
 );
+
+export const registerUser = async (userData) => {
+  try {
+    const response = await axios.post('/api/register', userData);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.detail || 'Registration failed');
+  }
+};
+
+export const loginUser = async (userData) => {
+  try {
+    const response = await axios.post('/api/login', userData);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.detail || 'Login failed');
+  }
+};
+
+export const getUserProfile = async (token) => {
+  try {
+    const response = await axios.get('/api/profile', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.detail || 'Failed to fetch user profile');
+  }
+};
+
+export const updateUserProfile = async (token, userData) => {
+  try {
+    const response = await axios.put('/api/profile', userData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.detail || 'Failed to update user profile');
+  }
+};
